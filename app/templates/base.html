@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}釣具せどり 入荷情報{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a href="/" class="brand">🎣 エリアトラウト仕入れウォッチャー</a>
+    <nav>
+      <a href="/">新着一覧</a>
+      <a href="/sources">ソース設定</a>
+    </nav>
+    <form method="post" action="/refresh" class="refresh-form">
+      <button type="submit">今すぐ巡回</button>
+    </form>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if not line_enabled %}
+<div class="notice">
+  LINE通知が未設定です。<code>.env</code> に <code>LINE_CHANNEL_ACCESS_TOKEN</code> と
+  <code>LINE_USER_ID</code> を設定すると新着をLINEで受け取れます。
+</div>
+{% endif %}
+
+{% if request.query_params.get('refreshing') %}
+<div class="notice">バックグラウンドで全ソースを巡回中です。数十秒後に再読み込みしてください。</div>
+{% endif %}
+
+<form method="get" action="/" class="filter-bar">
+  <input type="text" name="q" value="{{ q }}" placeholder="キーワードで検索 (例: ロデオクラフト)" />
+  <select name="source">
+    <option value="">全ソース</option>
+    {% for s in source_names %}
+      <option value="{{ s }}" {% if s == selected_source %}selected{% endif %}>{{ s }}</option>
+    {% endfor %}
+  </select>
+  <label class="fav-toggle">
+    <input type="checkbox" name="favorite" value="true" {% if favorite_only %}checked{% endif %} />
+    お気に入りのみ
+  </label>
+  <button type="submit">絞り込み</button>
+</form>
+
+<div class="item-grid">
+  {% for item in items %}
+  <div class="item-card {% if item.is_favorite %}favorite{% endif %}">
+    {% if item.image_url %}
+      <img src="{{ item.image_url }}" alt="" loading="lazy" />
+    {% else %}
+      <div class="no-image">No Image</div>
+    {% endif %}
+    <div class="item-body">
+      <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="item-title">{{ item.title }}</a>
+      <div class="item-meta">
+        <span class="price">{% if item.price %}{{ "{:,.0f}".format(item.price) }}円{% else %}価格不明{% endif %}</span>
+        <span class="shop">{{ item.shop_name or item.source_name }}</span>
+      </div>
+      <div class="item-tags">
+        <span class="tag">{{ item.source_name }}</span>
+        {% if item.matched_keyword %}<span class="tag kw">{{ item.matched_keyword }}</span>{% endif %}
+        {% if item.condition %}<span class="tag">{{ item.condition }}</span>{% endif %}
+      </div>
+      <div class="item-footer">
+        <span class="seen-at">{{ item.first_seen_at.strftime("%Y-%m-%d %H:%M") }}</span>
+        <form method="post" action="/items/{{ item.id }}/favorite">
+          <input type="hidden" name="next" value="/?q={{ q }}&source={{ selected_source }}" />
+          <button type="submit" class="fav-btn">{% if item.is_favorite %}★ お気に入り解除{% else %}☆ お気に入り{% endif %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <p>まだ新着アイテムがありません。「今すぐ巡回」を押すか、しばらく待ってください。</p>
+  {% endfor %}
+</div>
+
+{% endblock %}
