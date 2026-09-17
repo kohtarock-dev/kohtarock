@@ -53,7 +53,7 @@ sources:
   # ---------------------------------------------------------------
   - name: 楽天市場
     type: rakuten_api
-    enabled: true
+    enabled: false  # 専門店のみ運用する方針のため無効化(要望があればtrueに戻すだけでOK)
     poll_interval_sec: 900
     genre_id: null   # 必要ならジャンルIDで絞り込み(釣具ジャンル等)
     sort: "-updateTimestamp"  # 更新が新しい順
@@ -64,7 +64,7 @@ sources:
   # ---------------------------------------------------------------
   - name: Yahoo!ショッピング
     type: yahoo_shopping_api
-    enabled: true
+    enabled: false  # 専門店のみ運用する方針のため無効化(未使用・APIキーも未設定)
     poll_interval_sec: 900
 
   # ---------------------------------------------------------------
