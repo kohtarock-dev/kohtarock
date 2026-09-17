@@ -1,11 +1,14 @@
 """楽天市場 商品検索API(公式)。
 
-https://webservice.rakuten.co.jp/documentation/ichiba-item-search
-利用には無料のアプリID登録が必要 (.env の RAKUTEN_APP_ID)。
+https://webservice.rakuten.co.jp/ (2026年2月にAPI基盤が移行され、
+新エンドポイント openapi.rakuten.co.jp では applicationId に加えて
+accessKey も必須になっている)。
+利用には無料のアプリID登録が必要 (.env の RAKUTEN_APP_ID / RAKUTEN_ACCESS_KEY)。
 """
 from __future__ import annotations
 
 import logging
+import time
 
 import httpx
 
@@ -14,32 +17,51 @@ from app.sources.base import BaseSource, FetchedItem
 
 logger = logging.getLogger(__name__)
 
-API_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
+API_URL = "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701"
 
 # 1ソース巡回あたりに問い合わせるキーワード数の上限(API呼び出し過多を避ける)
 MAX_KEYWORDS_PER_POLL = 15
+
+# アプリ登録時の「予想QPS」(1リクエスト/秒)を超えないよう、呼び出し間隔を空ける
+REQUEST_INTERVAL_SEC = 1.1
+
+# 新API基盤はアプリ登録時の「許可されたWebサイト」に一致するReferer/Originが無いと
+# REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING で拒否される。
+_REQUEST_HEADERS = {
+    "Referer": "https://github.com/kohtarock-dev/kohtarock",
+    "Origin": "https://github.com",
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+    ),
+}
 
 
 class RakutenApiSource(BaseSource):
     type_name = "rakuten_api"
 
     def fetch(self, keywords: list[str]) -> list[FetchedItem]:
-        if not settings.rakuten_app_id:
-            logger.warning("RAKUTEN_APP_ID が未設定のため %s をスキップします", self.name)
+        if not settings.rakuten_app_id or not settings.rakuten_access_key:
+            logger.warning(
+                "RAKUTEN_APP_ID / RAKUTEN_ACCESS_KEY が未設定のため %s をスキップします", self.name
+            )
             return []
 
         results: dict[str, FetchedItem] = {}
-        with httpx.Client(timeout=15.0) as client:
-            for keyword in keywords[:MAX_KEYWORDS_PER_POLL]:
+        with httpx.Client(timeout=15.0, headers=_REQUEST_HEADERS) as client:
+            for i, keyword in enumerate(keywords[:MAX_KEYWORDS_PER_POLL]):
+                if i > 0:
+                    time.sleep(REQUEST_INTERVAL_SEC)
                 params = {
+                    "format": "json",
                     "applicationId": settings.rakuten_app_id,
+                    "accessKey": settings.rakuten_access_key,
                     "keyword": keyword,
+                    "genreId": self.config.get("genre_id") or 0,
                     "sort": self.config.get("sort", "-updateTimestamp"),
                     "hits": 30,
                     "availability": 1,  # 在庫ありのみ
                 }
-                if self.config.get("genre_id"):
-                    params["genreId"] = self.config["genre_id"]
 
                 try:
                     resp = client.get(API_URL, params=params)

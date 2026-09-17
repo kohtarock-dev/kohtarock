@@ -20,6 +20,7 @@ class Settings:
     database_url: str = field(default_factory=lambda: os.getenv("DATABASE_URL", "sqlite:///./data/app.db"))
 
     rakuten_app_id: str = field(default_factory=lambda: os.getenv("RAKUTEN_APP_ID", ""))
+    rakuten_access_key: str = field(default_factory=lambda: os.getenv("RAKUTEN_ACCESS_KEY", ""))
     yahoo_app_id: str = field(default_factory=lambda: os.getenv("YAHOO_APP_ID", ""))
 
     line_channel_access_token: str = field(default_factory=lambda: os.getenv("LINE_CHANNEL_ACCESS_TOKEN", ""))

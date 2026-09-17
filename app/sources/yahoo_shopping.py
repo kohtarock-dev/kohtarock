@@ -6,6 +6,7 @@ https://developer.yahoo.co.jp/webapi/shopping/v3/itemsearch.html
 from __future__ import annotations
 
 import logging
+import time
 
 import httpx
 
@@ -17,6 +18,7 @@ logger = logging.getLogger(__name__)
 API_URL = "https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch"
 
 MAX_KEYWORDS_PER_POLL = 15
+REQUEST_INTERVAL_SEC = 1.1
 
 
 class YahooShoppingApiSource(BaseSource):
@@ -29,7 +31,9 @@ class YahooShoppingApiSource(BaseSource):
 
         results: dict[str, FetchedItem] = {}
         with httpx.Client(timeout=15.0) as client:
-            for keyword in keywords[:MAX_KEYWORDS_PER_POLL]:
+            for i, keyword in enumerate(keywords[:MAX_KEYWORDS_PER_POLL]):
+                if i > 0:
+                    time.sleep(REQUEST_INTERVAL_SEC)
                 params = {
                     "appid": settings.yahoo_app_id,
                     "query": keyword,
