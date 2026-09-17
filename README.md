@@ -42,13 +42,13 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 ## LINE通知の設定
 
 LINE Notifyは2025年3月末で新規発行・提供が終了したため、本アプリはLINE公式アカウント
-(Messaging API)のpush通知を使用します。
+(Messaging API)のbroadcast(友だち全員に配信)を使用します。個人利用ではこの公式
+アカウントの友だちは基本的に自分だけなので、実質的に自分専用の通知として機能し、
+面倒なユーザーID特定の作業が不要です。
 
 1. https://developers.line.biz/console/ でプロバイダー・Messaging APIチャネルを作成
 2. 「Messaging API設定」タブでチャネルアクセストークン(長期)を発行 → `LINE_CHANNEL_ACCESS_TOKEN`
-3. 作成した公式アカウントを自分のLINEで友だち追加
-4. 自分のLINEユーザーIDを取得(LINE Developersコンソールの「あなたのユーザーID」、
-   もしくはWebhookのイベントログから確認)→ `LINE_USER_ID`
+3. 作成した公式アカウントのQRコードを自分のLINEで読み取り、友だち追加
 
 未設定の場合、通知は送信されずWeb画面での確認のみになります。
 

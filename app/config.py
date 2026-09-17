@@ -24,7 +24,6 @@ class Settings:
     yahoo_app_id: str = field(default_factory=lambda: os.getenv("YAHOO_APP_ID", ""))
 
     line_channel_access_token: str = field(default_factory=lambda: os.getenv("LINE_CHANNEL_ACCESS_TOKEN", ""))
-    line_user_id: str = field(default_factory=lambda: os.getenv("LINE_USER_ID", ""))
 
     app_host: str = field(default_factory=lambda: os.getenv("APP_HOST", "0.0.0.0"))
     app_port: int = field(default_factory=lambda: int(os.getenv("APP_PORT", "8000")))
@@ -34,7 +33,7 @@ class Settings:
 
     @property
     def line_enabled(self) -> bool:
-        return bool(self.line_channel_access_token and self.line_user_id)
+        return bool(self.line_channel_access_token)
 
 
 settings = Settings()
