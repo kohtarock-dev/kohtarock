@@ -238,7 +238,7 @@ sources:
   # (リンクは普通のブラウザで開く分には問題なく表示できる)。
   - name: プロショップオオツカ
     type: sitemap_diff
-    enabled: false  # サイトマップ更新の情報量が多すぎるため無効化(要望があればtrueに戻すだけでOK)
+    enabled: true  # F.S01/神楽等での絞り込みはタイトル情報が取得できず不可のため、全件通知で運用
     poll_interval_sec: 1800
     sitemap_url: "https://www.fishing-otsuka.co.jp/troutshopjp/sitemap-1.xml"
     recent_days: 3
