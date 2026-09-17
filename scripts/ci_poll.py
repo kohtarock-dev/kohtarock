@@ -1,10 +1,13 @@
 """GitHub Actions から定期実行する軽量ポーリングスクリプト。
 
 FastAPIサーバーやDBを起動せず、config/sources.yaml のソースを1回ずつ巡回して
-LINEに新着通知を送るだけの最小構成。既知アイテムの記録は data/seen.txt という
-テキストファイル(1行1件、"ソース名|外部ID")に持たせ、ワークフロー側でこの
-ファイルをリポジトリにコミットし直すことで、実行のたびに新しいGitHub Actions
-ランナーが立ち上がっても「既に通知済みかどうか」を判定できるようにしている。
+Telegramに新着通知を送るだけの最小構成(LINEは月200通の無料枠が実用的でな
+かったため、完全無料・通数制限のないTelegramに切り替えた。app/notify/line.py
+は残してあるので設定を変えれば戻せる)。既知アイテムの記録は data/seen.txt
+というテキストファイル(1行1件、"ソース名|外部ID")に持たせ、ワークフロー側
+でこのファイルをリポジトリにコミットし直すことで、実行のたびに新しいGitHub
+Actionsランナーが立ち上がっても「既に通知済みかどうか」を判定できるように
+している。
 """
 from __future__ import annotations
 
@@ -18,7 +21,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.config import load_sources_config, settings  # noqa: E402
-from app.notify.line import notify_new_items  # noqa: E402
+from app.notify.telegram import notify_new_items  # noqa: E402
 from app.sources.base import is_excluded, match_keywords  # noqa: E402
 from app.sources.registry import build_source  # noqa: E402
 
@@ -146,7 +149,7 @@ def main() -> None:
             )
 
     if new_items:
-        logger.info("新着 %d 件を検出しました。LINEに通知します。", len(new_items))
+        logger.info("新着 %d 件を検出しました。Telegramに通知します。", len(new_items))
         notify_new_items(new_items)
     else:
         logger.info("新着はありませんでした。")

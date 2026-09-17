@@ -1,12 +1,12 @@
 # kohtarock — エリアトラウト仕入れウォッチャー
 
 エリアトラウト用品(ロッド・ルアー等)のせどり用に、複数のネットショップ・フリマ/オークションから
-新着・入荷情報を定期的に拾い、Web画面で一覧表示 & LINEに通知するアプリです。
+新着・入荷情報を定期的に拾い、Web画面で一覧表示 & Telegramに通知するアプリです。
 
 - 常駐サーバー(FastAPI)+ Web UI
 - ソースごとに巡回間隔を設定して定期ポーリング(APScheduler)
 - キーワードでの絞り込み・除外
-- 新着を検出したらLINE(Messaging API)にプッシュ通知
+- 新着を検出したらTelegram Botにプッシュ通知(完全無料・通数制限なし)
 - ソースはプラグイン形式で追加可能
 
 ## 対応ソースタイプ
@@ -26,7 +26,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 cp .env.example .env
-# .env を編集してAPIキー・LINEの設定を入力
+# .env を編集してAPIキー・Telegramの設定を入力
 
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
@@ -39,24 +39,30 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 - **楽天市場**: https://webservice.rakuten.co.jp/ でアプリID登録(無料) → `RAKUTEN_APP_ID`
 - **Yahoo!ショッピング**: https://developer.yahoo.co.jp/ でアプリID登録(無料) → `YAHOO_APP_ID`
 
-## LINE通知の設定
+## Telegram通知の設定
 
-LINE Notifyは2025年3月末で新規発行・提供が終了したため、本アプリはLINE公式アカウント
-(Messaging API)のbroadcast(友だち全員に配信)を使用します。個人利用ではこの公式
-アカウントの友だちは基本的に自分だけなので、実質的に自分専用の通知として機能し、
-面倒なユーザーID特定の作業が不要です。
+当初はLINE公式アカウント(Messaging API)を使っていましたが、無料プランが
+**月200通まで**という制限があり、有料プラン(月¥5,000〜)も検討したものの
+実用的ではないと判断し、**完全無料・通数制限の無いTelegram**に切り替えました。
 
-1. https://developers.line.biz/console/ でプロバイダー・Messaging APIチャネルを作成
-2. 「Messaging API設定」タブでチャネルアクセストークン(長期)を発行 → `LINE_CHANNEL_ACCESS_TOKEN`
-3. 作成した公式アカウントのQRコードを自分のLINEで読み取り、友だち追加
+1. Telegramアプリで [@BotFather](https://t.me/BotFather) とのチャットを開き、
+   `/newbot` を送信してBotを作成する(名前とユーザー名を聞かれるので好きに入力)
+2. 発行されたトークン(`123456789:AAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` のような形式)
+   を `TELEGRAM_BOT_TOKEN` に設定
+3. 作成したBotとのチャットを開き、何かメッセージ(`/start` など)を送っておく
+4. ブラウザで `https://api.telegram.org/bot<トークン>/getUpdates` を開き、
+   レスポンス中の `"chat":{"id": 数字, ...}` の数字を `TELEGRAM_CHAT_ID` に設定
 
 未設定の場合、通知は送信されずWeb画面での確認のみになります。
 
-**無料プランは月200通までの制限**があります(管理画面の「メッセージ配信 ○/200」
-で残数を確認できます)。超えても自動課金はされませんが、その月はそれ以上通知が
-届かなくなります(翌月1日にリセット)。この上限を圧迫しないよう、新着は1件ずつ
-ではなく**最大10件ごとに1通のテキストにまとめて**送信しています
-(`app/notify/line.py` の `ITEMS_PER_MESSAGE`)。
+新着は1件ずつではなく**最大20件ごとに1通のテキストにまとめて**送信しています
+(`app/notify/telegram.py` の `ITEMS_PER_MESSAGE`)。Telegramには月間の通数制限が
+無いため、これは主に読みやすさのための工夫です。
+
+なお、LINE Messaging API向けの実装(`app/notify/line.py`)もそのまま残してあります。
+再度LINEに戻したい場合は、`scripts/ci_poll.py` と `app/scheduler.py` の
+`from app.notify.telegram import notify_new_items` を
+`from app.notify.line import notify_new_items` に書き換えるだけです。
 
 ## ソースの追加・編集方法
 
@@ -166,7 +172,7 @@ XMLサイトマップ(robots.txtで案内されている公式ファイル)だ�
 
 ## PCをつけっぱなしにせず常時稼働させる(GitHub Actions)
 
-このリポジトリが public であれば、GitHub Actionsを使って完全無料でLINE通知だけを
+このリポジトリが public であれば、GitHub Actionsを使って完全無料でTelegram通知だけを
 自動化できます(`.github/workflows/poll.yml`)。5分おきに `scripts/ci_poll.py` が
 起動しますが、実際に各ソースへアクセスする間隔は `config/sources.yaml` の
 `poll_interval_sec` に従います(公式RSS配信のある店は5分、RSSが無くページを
@@ -174,7 +180,7 @@ XMLサイトマップ(robots.txtで案内されている公式ファイル)だ�
 されるので、5分おきに起動しても個々のショップへの負荷は増えません。
 
 FastAPIサーバーは常時起動しない(=Web UIの一覧画面は常時アクセスできない)方式
-なので、あくまで「LINE通知だけは止まらない」ための仕組みです。Web UIも含めて
+なので、あくまで「Telegram通知だけは止まらない」ための仕組みです。Web UIも含めて
 常時稼働させたい場合は、別途VPS等にデプロイしてください。
 
 セットアップ:
@@ -183,7 +189,8 @@ FastAPIサーバーは常時起動しない(=Web UIの一覧画面は常時ア�
    `.env` に設定しているのと同じ値をリポジトリシークレットとして登録する:
    - `RAKUTEN_APP_ID`
    - `RAKUTEN_ACCESS_KEY`
-   - `LINE_CHANNEL_ACCESS_TOKEN`
+   - `TELEGRAM_BOT_TOKEN`
+   - `TELEGRAM_CHAT_ID`
    - (Yahoo!ショッピングを使うなら `YAHOO_APP_ID` も)
 2. `main` ブランチにpushすれば、あとは自動的に5分おきに実行されます
 3. Actions タブの「新着仕入れ情報のポーリング」ワークフローから、
@@ -224,8 +231,9 @@ app/
   scheduler.py     # 定期巡回・新着判定・通知トリガー
   db.py            # DBモデル(Item)
   config.py        # 設定読み込み
-  sources/         # ソース実装(楽天/Yahoo!/RSS/HTMLポーリング)
-  notify/line.py   # LINE Messaging API通知
+  sources/         # ソース実装(楽天/Yahoo!/RSS/HTMLポーリング/サイトマップ差分)
+  notify/telegram.py  # Telegram Bot通知(現在使用中)
+  notify/line.py       # LINE Messaging API通知(未使用・実装は残置)
   templates/       # Jinja2テンプレート
   static/          # CSS
 config/

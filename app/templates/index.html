@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if not line_enabled %}
+{% if not telegram_enabled %}
 <div class="notice">
-  LINE通知が未設定です。<code>.env</code> に <code>LINE_CHANNEL_ACCESS_TOKEN</code> と
-  <code>LINE_USER_ID</code> を設定すると新着をLINEで受け取れます。
+  Telegram通知が未設定です。<code>.env</code> に <code>TELEGRAM_BOT_TOKEN</code> と
+  <code>TELEGRAM_CHAT_ID</code> を設定すると新着をTelegramで受け取れます。
 </div>
 {% endif %}
 

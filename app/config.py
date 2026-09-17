@@ -25,6 +25,9 @@ class Settings:
 
     line_channel_access_token: str = field(default_factory=lambda: os.getenv("LINE_CHANNEL_ACCESS_TOKEN", ""))
 
+    telegram_bot_token: str = field(default_factory=lambda: os.getenv("TELEGRAM_BOT_TOKEN", ""))
+    telegram_chat_id: str = field(default_factory=lambda: os.getenv("TELEGRAM_CHAT_ID", ""))
+
     app_host: str = field(default_factory=lambda: os.getenv("APP_HOST", "0.0.0.0"))
     app_port: int = field(default_factory=lambda: int(os.getenv("APP_PORT", "8000")))
     default_poll_interval_sec: int = field(
@@ -34,6 +37,10 @@ class Settings:
     @property
     def line_enabled(self) -> bool:
         return bool(self.line_channel_access_token)
+
+    @property
+    def telegram_enabled(self) -> bool:
+        return bool(self.telegram_bot_token and self.telegram_chat_id)
 
 
 settings = Settings()

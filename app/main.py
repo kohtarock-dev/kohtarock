@@ -60,7 +60,7 @@ def index(request: Request, q: str = "", source: str = "", favorite: bool = Fals
             "selected_source": source,
             "favorite_only": favorite,
             "source_names": sorted(source_names),
-            "line_enabled": settings.line_enabled,
+            "telegram_enabled": settings.telegram_enabled,
         },
     )
 

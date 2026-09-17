@@ -1,4 +1,4 @@
-"""各ソースを設定された間隔で巡回し、新着アイテムをDB保存 + LINE通知する。"""
+"""各ソースを設定された間隔で巡回し、新着アイテムをDB保存 + Telegram通知する。"""
 from __future__ import annotations
 
 import logging
@@ -9,7 +9,7 @@ from sqlalchemy.exc import IntegrityError
 
 from app.config import load_sources_config, settings
 from app.db import Item, SessionLocal
-from app.notify.line import notify_new_items
+from app.notify.telegram import notify_new_items
 from app.sources.base import is_excluded, match_keywords
 from app.sources.registry import build_source
 
@@ -82,7 +82,7 @@ def poll_source(name: str, source_type: str, config: dict, keywords: list[str], 
                     item.notified = True
                 session.commit()
             except Exception:
-                logger.exception("LINE通知処理でエラーが発生しました")
+                logger.exception("Telegram通知処理でエラーが発生しました")
         else:
             session.commit()
     finally:
