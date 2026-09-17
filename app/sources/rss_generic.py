@@ -27,7 +27,9 @@ _PRICE_PATTERN = re.compile(r"価格[:：]\s*¥?([\d,]+)")
 def _extract_price(html: str) -> float | None:
     if not html:
         return None
-    text = BeautifulSoup(html, "lxml").get_text(" ", strip=True)
+    # BeautifulSoupにHTMLタグを含まない短い文字列を渡すと
+    # 「ファイル名に見える」という無害な警告が出るため、その場合は素通しする
+    text = BeautifulSoup(html, "lxml").get_text(" ", strip=True) if "<" in html else html
     m = _PRICE_PATTERN.search(text)
     if not m:
         return None

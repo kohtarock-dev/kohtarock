@@ -112,6 +112,22 @@ sources:
     feed_url: "https://t-route.net/collections/all.atom"
     match_all: true
 
+  # プロショップトモ(エリアトラウト専門店)。Color Me Shop基盤の公式RSS。
+  - name: プロショップトモ
+    type: rss
+    enabled: true
+    poll_interval_sec: 1800
+    feed_url: "https://www.proshoptomo.com/?mode=rss"
+    match_all: true
+
+  # プロショップリバーロード(エリアトラウト専門店)。Color Me Shop基盤の公式RSS。
+  - name: プロショップリバーロード
+    type: rss
+    enabled: true
+    poll_interval_sec: 1800
+    feed_url: "https://riverroad1091.shop/?mode=rss"
+    match_all: true
+
   - name: ナチュラム 新着情報 (例)
     type: rss
     enabled: false
@@ -134,6 +150,40 @@ sources:
     price_selector: ".item-price"
     link_selector: "a"
     image_selector: "img"
+
+  # マニアックス(エリアトラウト専門店)。RSS/Atomの配信が無いため、
+  # 商品一覧ページ(新着順)をrobots.txt準拠でポーリングする。
+  # (robots.txt自体が存在しないサイトで、標準仕様上は全許可扱いとなる)
+  - name: マニアックス
+    type: html_polite
+    enabled: true
+    poll_interval_sec: 1800
+    list_url: "https://www.maniacs1091.jp/shopbrand/all_items/"
+    item_selector: "ul.innerList li"
+    title_selector: "p.name"
+    price_selector: "p.price"
+    link_selector: "a"
+    image_selector: "img"
+    match_all: true
+
+  # タックルラウンジ(中古エリアトラウト専門の買取・販売店)。
+  # WooCommerce製ショップの「新着」グリッドをrobots.txt準拠でポーリングする。
+  # 中古品中心のため、状態の良い掘り出し物を安く仕入れられる可能性がある。
+  - name: タックルラウンジ
+    type: html_polite
+    enabled: true
+    poll_interval_sec: 1800
+    list_url: "https://tackle-lounge.jp/shop/"
+    item_selector: "li.arrival-card"
+    title_selector: ".arrival-name"
+    price_selector: ".arrival-price-main"
+    link_selector: "a"
+    image_selector: "img"
+    match_all: true
+
+  # プロショップザーキー(fishingshop-zarky.com)は robots.txt の取得自体が
+  # Cloudflareのボット認証(JSチャレンジ)でブロックされるため、意図的に対応していません。
+  # 自動巡回を強行するのはサイト側の意図に反するため、店のSNS等で手動確認してください。
 
   # ---------------------------------------------------------------
   # 6) フリマ/オークション(メルカリ・ラクマ・PayPayフリマ等)

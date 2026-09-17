@@ -88,6 +88,16 @@ sources:
 - **トラウトアイランド**(`troutisland.shop-pro.jp/?mode=rss`)
 - **越谷タックルアイランド・トラウト**(`area-island.com/?mode=rss`)
 - **t-Route**(`t-route.net/collections/all.atom`、Shopify公式フィード)
+- **プロショップトモ**(`proshoptomo.com/?mode=rss`)
+- **プロショップリバーロード**(`riverroad1091.shop/?mode=rss`)
+
+RSSが無いショップは `html_polite` で一覧ページを直接ポーリングしています:
+
+- **マニアックス**(RSS/Atom配信なし。商品一覧ページをポーリング)
+- **タックルラウンジ**(中古エリアトラウト専門の買取・販売店。WooCommerceの「新着」グリッドをポーリング)
+
+なお **プロショップザーキー**(fishingshop-zarky.com)はCloudflareのボット認証(JSチャレンジ)が
+robots.txtの取得段階からかかっており、自動巡回はサイト側の意図に反すると判断し対応していません。
 
 これらの店のように扱う商品のほぼ全てが対象ジャンルの専門店では、
 `match_all: true` を指定するとキーワード絞り込みをせず新着を全件拾えます
