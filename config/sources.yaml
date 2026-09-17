@@ -49,6 +49,7 @@ default_keywords:
   - ディスプラウト
   - オフィスユーカリ
   - IOS FACTORY
+  - IOS-Factory
   - レイズ オルタ
   - ラッキークラフト
   - Lucky Craft
@@ -155,6 +156,14 @@ sources:
     enabled: true
     poll_interval_sec: 300
     feed_url: "https://www.any-netshop.net/?mode=rss"
+
+  # 城峰釣具店(秩父)。ほぼトラウト専門だが稀にバスロッド等も混じるため、
+  # 吉や・釣具アニーと同様match_allは使わずdefault_keywordsで絞り込む。
+  - name: 城峰釣具店
+    type: rss
+    enabled: true
+    poll_interval_sec: 300
+    feed_url: "https://fishing-shop-jh.com/?mode=rss"
 
   - name: ナチュラム 新着情報 (例)
     type: rss

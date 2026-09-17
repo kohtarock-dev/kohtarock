@@ -102,6 +102,8 @@ sources:
   同じく`default_keywords`で絞り込み)
 - **プロショップザーキー**(`fishingshop-zarky.com/collections/all.atom`、Shopify公式フィード。
   まれに一時的な503エラーになることがあるが、次の巡回(5分後)で自然に回復する)
+- **城峰釣具店**(`fishing-shop-jh.com/?mode=rss`、秩父。ほぼトラウト専門だが稀に
+  バスロッド等も混じるため`default_keywords`で絞り込み)
 
 RSSが無いショップは `html_polite` で一覧ページを直接ポーリングしています:
 
