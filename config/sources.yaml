@@ -209,9 +209,16 @@ sources:
     image_selector: "img"
     match_all: true
 
-  # プロショップザーキー(fishingshop-zarky.com)は robots.txt の取得自体が
-  # Cloudflareのボット認証(JSチャレンジ)でブロックされるため、意図的に対応していません。
-  # 自動巡回を強行するのはサイト側の意図に反するため、店のSNS等で手動確認してください。
+  # プロショップザーキー(トラウト専門店)。Shopifyの公式Atomフィード。
+  # 以前robots.txt取得がCloudflareのボット認証でブロックされたことがあったが、
+  # 再確認したところ解消しており(一時的な負荷起因と思われる)、Shopify標準の
+  # robots.txtも「クロール許可」を明示しているため追加した。
+  - name: プロショップザーキー
+    type: rss
+    enabled: true
+    poll_interval_sec: 300
+    feed_url: "https://fishingshop-zarky.com/collections/all.atom"
+    match_all: true
 
   # ---------------------------------------------------------------
   # 6) フリマ/オークション(メルカリ・ラクマ・PayPayフリマ等)

@@ -100,14 +100,13 @@ sources:
   `default_keywords`で絞り込み)
 - **釣具アニー**(`any-netshop.net/?mode=rss`、バス・ソルト等も扱う総合店のため
   同じく`default_keywords`で絞り込み)
+- **プロショップザーキー**(`fishingshop-zarky.com/collections/all.atom`、Shopify公式フィード。
+  まれに一時的な503エラーになることがあるが、次の巡回(5分後)で自然に回復する)
 
 RSSが無いショップは `html_polite` で一覧ページを直接ポーリングしています:
 
 - **マニアックス**(RSS/Atom配信なし。商品一覧ページをポーリング)
 - **タックルラウンジ**(中古エリアトラウト専門の買取・販売店。WooCommerceの「新着」グリッドをポーリング)
-
-なお **プロショップザーキー**(fishingshop-zarky.com)はCloudflareのボット認証(JSチャレンジ)が
-robots.txtの取得段階からかかっており、自動巡回はサイト側の意図に反すると判断し対応していません。
 
 これらの店のように扱う商品のほぼ全てが対象ジャンルの専門店では、
 `match_all: true` を指定するとキーワード絞り込みをせず新着を全件拾えます
