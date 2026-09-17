@@ -96,6 +96,8 @@ sources:
 - **t-Route**(`t-route.net/collections/all.atom`、Shopify公式フィード)
 - **プロショップトモ**(`proshoptomo.com/?mode=rss`)
 - **プロショップリバーロード**(`riverroad1091.shop/?mode=rss`)
+- **吉や**(`kitiya.jp/?mode=rss`、トラウト&バス兼業のため`match_all`は使わず
+  `default_keywords`で絞り込み)
 
 RSSが無いショップは `html_polite` で一覧ページを直接ポーリングしています:
 

@@ -26,8 +26,10 @@ default_keywords:
   # 主要ブランド(適宜追加/削除)
   - ロデオクラフト
   - RODIO CRAFT
-  - バルケイン
+  - ヴァルケイン   # 「バルケイン」は誤記(実際の表記はヴァ)だったため修正
   - Valkein
+  - ダーインスレイヴ
+  - DainsleiF
   - アピア
   - APIA
   - ティモン
@@ -36,11 +38,19 @@ default_keywords:
   - フォレスト ルアー
   - Forest
   - ダイワ トラウト
+  - プレッソ
+  - PRESSO
   - シマノ トラウト
   - スミス パニック
   - ジャッカル トラウト
   - ima トラウト
   - リューギ トラウト
+  - ムカイ
+  - ディスプラウト
+  - IOS FACTORY
+  - レイズ オルタ
+  - ラッキークラフト
+  - Lucky Craft
 
 default_exclude_keywords:
   - 中古 ジャンク
@@ -127,6 +137,15 @@ sources:
     poll_interval_sec: 300
     feed_url: "https://riverroad1091.shop/?mode=rss"
     match_all: true
+
+  # 吉や(トラウト&バス専門店、吉祥寺)。Color Me Shop基盤の公式RSS。
+  # バスルアーも扱っているため match_all は使わず、default_keywords による
+  # 絞り込みでトラウト関連だけを拾う。
+  - name: 吉や
+    type: rss
+    enabled: true
+    poll_interval_sec: 300
+    feed_url: "https://www.kitiya.jp/?mode=rss"
 
   - name: ナチュラム 新着情報 (例)
     type: rss
