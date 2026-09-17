@@ -38,15 +38,22 @@ class NotifiableItem:
     matched_keyword: str | None
 
 
-def load_seen() -> set[str]:
+def load_seen() -> list[str]:
+    """data/seen.txt をファイルに書かれている順番のまま読み込む。
+
+    set() の反復順はプロセスごとに変わり得るため、順序の情報源には使わない。
+    ファイルの行順そのものを「古い順」の記録として扱うことで、次回保存時に
+    実際に増減した分だけが差分に出るようにする(実行のたびに全体の並びが
+    入れ替わって無意味な差分がコミットされるのを防ぐ)。
+    """
     if not SEEN_FILE.exists():
-        return set()
-    return set(SEEN_FILE.read_text(encoding="utf-8").splitlines())
+        return []
+    return [line for line in SEEN_FILE.read_text(encoding="utf-8").splitlines() if line]
 
 
-def save_seen(all_keys: list[str]) -> None:
+def save_seen(seen_order: list[str]) -> None:
     SEEN_FILE.parent.mkdir(parents=True, exist_ok=True)
-    trimmed = all_keys[-MAX_SEEN_LINES:]
+    trimmed = seen_order[-MAX_SEEN_LINES:]
     SEEN_FILE.write_text("\n".join(trimmed) + "\n", encoding="utf-8")
 
 
@@ -55,8 +62,8 @@ def main() -> None:
     default_keywords = config.get("default_keywords", [])
     default_exclude = config.get("default_exclude_keywords", [])
 
-    seen = load_seen()
-    seen_order = list(seen)
+    seen_order = load_seen()
+    seen = set(seen_order)
     new_items: list[NotifiableItem] = []
 
     for src in config.get("sources", []):
