@@ -94,6 +94,24 @@ sources:
     feed_url: "http://troutisland.shop-pro.jp/?mode=rss"
     match_all: true
 
+  # 越谷タックルアイランド・トラウト(エリアトラウト・渓流専門店)。
+  # トラウトアイランドと同じColor Me Shop基盤で、robots.txtで許可された公式RSS。
+  - name: 越谷タックルアイランド・トラウト
+    type: rss
+    enabled: true
+    poll_interval_sec: 1800
+    feed_url: "https://www.area-island.com/?mode=rss"
+    match_all: true
+
+  # t-Route(エリアトラウト用品専門店、東京・中野坂上)。
+  # Shopifyの公式Atomフィード(全商品の新着順)。robots.txtで明示的にクロール許可されている。
+  - name: t-Route
+    type: rss
+    enabled: true
+    poll_interval_sec: 1800
+    feed_url: "https://t-route.net/collections/all.atom"
+    match_all: true
+
   - name: ナチュラム 新着情報 (例)
     type: rss
     enabled: false
