@@ -7,6 +7,10 @@ LINE公式アカウント(Messaging API)を使用する。
 地味に手間なので、あえて「友だち全員に配信」するbroadcast APIを使う。
 この公式アカウントの友だちは基本的に自分だけなので、実質的に自分専用の
 プッシュ通知として機能する。
+
+無料プランはメッセージ配信が月200通までという制限があるため、新着を
+1件ずつ別メッセージにはせず、複数件をまとめて1通のテキストにまとめて
+送信することで、同じ枠で多くの新着をカバーできるようにしている。
 """
 from __future__ import annotations
 
@@ -20,6 +24,12 @@ from app.config import settings
 logger = logging.getLogger(__name__)
 
 BROADCAST_URL = "https://api.line.me/v2/bot/message/broadcast"
+
+# 1通のテキストメッセージにまとめる新着件数。LINEのテキストメッセージは
+# 最大5000文字までなので、余裕を持って収まる件数にしている。
+ITEMS_PER_MESSAGE = 10
+# LINEのメッセージ配信は1回のAPI呼び出しあたり最大5メッセージまで。
+MESSAGES_PER_REQUEST = 5
 
 
 class NotifiableItem(Protocol):
@@ -37,17 +47,20 @@ class NotifiableItem(Protocol):
     matched_keyword: str | None
 
 
-def _build_message(item: NotifiableItem) -> str:
+def _format_item(item: NotifiableItem) -> str:
     price_str = f"{int(item.price):,}円" if item.price is not None else "価格不明"
     lines = [
-        "【新着】" + item.title[:80],
-        f"価格: {price_str}",
-        f"出店: {item.shop_name or item.source_name}",
+        "■ " + item.title[:60],
+        f"{price_str} / {item.shop_name or item.source_name}",
         item.url,
     ]
-    if item.matched_keyword:
-        lines.insert(1, f"キーワード: {item.matched_keyword}")
     return "\n".join(lines)
+
+
+def _build_batch_message(items: list[NotifiableItem]) -> str:
+    header = f"【新着 {len(items)}件】"
+    body = "\n\n".join(_format_item(item) for item in items)
+    return f"{header}\n\n{body}"
 
 
 def notify_new_items(items: list[NotifiableItem]) -> None:
@@ -62,14 +75,13 @@ def notify_new_items(items: list[NotifiableItem]) -> None:
         "Content-Type": "application/json",
     }
 
-    # LINEのメッセージは1回あたり最大5件まで。多い場合は分割して送信する。
-    chunk_size = 5
+    # 複数件をまとめて1通のテキストにし、月200通の無料枠を圧迫しないようにする
+    batches = [items[i : i + ITEMS_PER_MESSAGE] for i in range(0, len(items), ITEMS_PER_MESSAGE)]
+    messages = [{"type": "text", "text": _build_batch_message(batch)} for batch in batches]
+
     with httpx.Client(timeout=10.0) as client:
-        for i in range(0, len(items), chunk_size):
-            chunk = items[i : i + chunk_size]
-            payload = {
-                "messages": [{"type": "text", "text": _build_message(item)} for item in chunk],
-            }
+        for i in range(0, len(messages), MESSAGES_PER_REQUEST):
+            payload = {"messages": messages[i : i + MESSAGES_PER_REQUEST]}
             try:
                 resp = client.post(BROADCAST_URL, headers=headers, json=payload)
                 resp.raise_for_status()
