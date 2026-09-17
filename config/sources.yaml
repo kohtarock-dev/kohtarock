@@ -47,6 +47,7 @@ default_keywords:
   - リューギ トラウト
   - ムカイ
   - ディスプラウト
+  - オフィスユーカリ
   - IOS FACTORY
   - レイズ オルタ
   - ラッキークラフト
@@ -146,6 +147,14 @@ sources:
     enabled: true
     poll_interval_sec: 300
     feed_url: "https://www.kitiya.jp/?mode=rss"
+
+  # 釣具アニー(バス・ソルト・トラウトなど幅広く扱う総合釣具店)。Color Me Shop基盤の公式RSS。
+  # 吉やと同様、match_allは使わずdefault_keywordsで絞り込む。
+  - name: 釣具アニー
+    type: rss
+    enabled: true
+    poll_interval_sec: 300
+    feed_url: "https://www.any-netshop.net/?mode=rss"
 
   - name: ナチュラム 新着情報 (例)
     type: rss

@@ -98,6 +98,8 @@ sources:
 - **プロショップリバーロード**(`riverroad1091.shop/?mode=rss`)
 - **吉や**(`kitiya.jp/?mode=rss`、トラウト&バス兼業のため`match_all`は使わず
   `default_keywords`で絞り込み)
+- **釣具アニー**(`any-netshop.net/?mode=rss`、バス・ソルト等も扱う総合店のため
+  同じく`default_keywords`で絞り込み)
 
 RSSが無いショップは `html_polite` で一覧ページを直接ポーリングしています:
 
