@@ -644,3 +644,4 @@ t-Route|https://t-route.net/products/9517141655766
 t-Route|https://t-route.net/products/9517366837462
 t-Route|https://t-route.net/products/9517490274518
 t-Route|https://t-route.net/products/9517690028246
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193580273
