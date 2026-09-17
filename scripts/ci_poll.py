@@ -8,14 +8,16 @@ LINEに新着通知を送るだけの最小構成。既知アイテムの記録�
 """
 from __future__ import annotations
 
+import json
 import logging
 import sys
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app.config import load_sources_config  # noqa: E402
+from app.config import load_sources_config, settings  # noqa: E402
 from app.notify.line import notify_new_items  # noqa: E402
 from app.sources.base import is_excluded, match_keywords  # noqa: E402
 from app.sources.registry import build_source  # noqa: E402
@@ -23,7 +25,12 @@ from app.sources.registry import build_source  # noqa: E402
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-SEEN_FILE = Path(__file__).resolve().parent.parent / "data" / "seen.txt"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+SEEN_FILE = DATA_DIR / "seen.txt"
+# GitHub Actionsのcronは短い間隔(例: 5分)で起動する一方、ソースごとに
+# config/sources.yaml の poll_interval_sec を守ってアクセス頻度を抑えるため、
+# 各ソースを最後に巡回した時刻をここに記録しておく。
+LAST_FETCH_FILE = DATA_DIR / "last_fetch.json"
 # 際限なく肥大化しないよう、直近何件までを保持するか
 MAX_SEEN_LINES = 8000
 
@@ -57,6 +64,28 @@ def save_seen(seen_order: list[str]) -> None:
     SEEN_FILE.write_text("\n".join(trimmed) + "\n", encoding="utf-8")
 
 
+def load_last_fetch() -> dict[str, str]:
+    if not LAST_FETCH_FILE.exists():
+        return {}
+    try:
+        return json.loads(LAST_FETCH_FILE.read_text(encoding="utf-8"))
+    except ValueError:
+        return {}
+
+
+def save_last_fetch(last_fetch: dict[str, str]) -> None:
+    LAST_FETCH_FILE.parent.mkdir(parents=True, exist_ok=True)
+    LAST_FETCH_FILE.write_text(json.dumps(last_fetch, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def is_due(name: str, interval_sec: int, last_fetch: dict[str, str]) -> bool:
+    last = last_fetch.get(name)
+    if not last:
+        return True
+    elapsed = (datetime.now(timezone.utc) - datetime.fromisoformat(last)).total_seconds()
+    return elapsed >= interval_sec
+
+
 def main() -> None:
     config = load_sources_config()
     default_keywords = config.get("default_keywords", [])
@@ -64,6 +93,7 @@ def main() -> None:
 
     seen_order = load_seen()
     seen = set(seen_order)
+    last_fetch = load_last_fetch()
     new_items: list[NotifiableItem] = []
 
     for src in config.get("sources", []):
@@ -73,6 +103,11 @@ def main() -> None:
         keywords = src.get("keywords") or default_keywords
         exclude_keywords = src.get("exclude_keywords") or default_exclude
         match_all = bool(src.get("match_all"))
+        interval_sec = int(src.get("poll_interval_sec") or settings.default_poll_interval_sec)
+
+        if not is_due(name, interval_sec, last_fetch):
+            logger.info("%s: 前回巡回から %d 秒経っていないためスキップします", name, interval_sec)
+            continue
 
         try:
             source = build_source(name, src["type"], src)
@@ -80,6 +115,8 @@ def main() -> None:
         except Exception:
             logger.exception("巡回中にエラーが発生しました: %s", name)
             continue
+
+        last_fetch[name] = datetime.now(timezone.utc).isoformat()
 
         for fetched in fetched_items:
             key = f"{name}|{fetched.external_id}"
@@ -115,6 +152,7 @@ def main() -> None:
         logger.info("新着はありませんでした。")
 
     save_seen(seen_order)
+    save_last_fetch(last_fetch)
 
 
 if __name__ == "__main__":

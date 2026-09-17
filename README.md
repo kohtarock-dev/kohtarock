@@ -131,8 +131,11 @@ RSSが無いサイトは `type: html_polite` で一覧ページをCSSセレク�
 ## PCをつけっぱなしにせず常時稼働させる(GitHub Actions)
 
 このリポジトリが public であれば、GitHub Actionsを使って完全無料でLINE通知だけを
-自動化できます(`.github/workflows/poll.yml`)。30分おきに `scripts/ci_poll.py` が
-起動し、各ソースを1回巡回してLINEに新着通知を送ります。
+自動化できます(`.github/workflows/poll.yml`)。5分おきに `scripts/ci_poll.py` が
+起動しますが、実際に各ソースへアクセスする間隔は `config/sources.yaml` の
+`poll_interval_sec` に従います(公式RSS配信のある店は5分、RSSが無くページを
+直接読みにいく店は30分、など)。まだ間隔に達していないソースはその回はスキップ
+されるので、5分おきに起動しても個々のショップへの負荷は増えません。
 
 FastAPIサーバーは常時起動しない(=Web UIの一覧画面は常時アクセスできない)方式
 なので、あくまで「LINE通知だけは止まらない」ための仕組みです。Web UIも含めて
@@ -146,12 +149,13 @@ FastAPIサーバーは常時起動しない(=Web UIの一覧画面は常時ア�
    - `RAKUTEN_ACCESS_KEY`
    - `LINE_CHANNEL_ACCESS_TOKEN`
    - (Yahoo!ショッピングを使うなら `YAHOO_APP_ID` も)
-2. `main` ブランチにpushすれば、あとは自動的に30分おきに実行されます
+2. `main` ブランチにpushすれば、あとは自動的に5分おきに実行されます
 3. Actions タブの「新着仕入れ情報のポーリング」ワークフローから、
    「Run workflow」で手動実行して動作確認もできます
 
-「既に通知済みかどうか」は `data/seen.txt` に記録し、実行のたびにリポジトリへ
-コミットし直すことで、次回の実行(新しいランナー)にも引き継がれます。
+「既に通知済みかどうか」は `data/seen.txt`、「ソースごとに最後に巡回した時刻」は
+`data/last_fetch.json` に記録し、実行のたびにリポジトリへコミットし直すことで、
+次回の実行(新しいランナー)にも引き継がれます。
 
 ## 法的・利用上の注意(重要)
 

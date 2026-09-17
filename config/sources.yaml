@@ -90,7 +90,7 @@ sources:
   - name: トラウトアイランド
     type: rss
     enabled: true
-    poll_interval_sec: 1800
+    poll_interval_sec: 300
     feed_url: "http://troutisland.shop-pro.jp/?mode=rss"
     match_all: true
 
@@ -99,7 +99,7 @@ sources:
   - name: 越谷タックルアイランド・トラウト
     type: rss
     enabled: true
-    poll_interval_sec: 1800
+    poll_interval_sec: 300
     feed_url: "https://www.area-island.com/?mode=rss"
     match_all: true
 
@@ -108,7 +108,7 @@ sources:
   - name: t-Route
     type: rss
     enabled: true
-    poll_interval_sec: 1800
+    poll_interval_sec: 300
     feed_url: "https://t-route.net/collections/all.atom"
     match_all: true
 
@@ -116,7 +116,7 @@ sources:
   - name: プロショップトモ
     type: rss
     enabled: true
-    poll_interval_sec: 1800
+    poll_interval_sec: 300
     feed_url: "https://www.proshoptomo.com/?mode=rss"
     match_all: true
 
@@ -124,7 +124,7 @@ sources:
   - name: プロショップリバーロード
     type: rss
     enabled: true
-    poll_interval_sec: 1800
+    poll_interval_sec: 300
     feed_url: "https://riverroad1091.shop/?mode=rss"
     match_all: true
 
