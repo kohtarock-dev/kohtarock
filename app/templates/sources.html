@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>ソース設定</h1>
+<p>
+  ソースの追加・編集は <code>config/sources.yaml</code> を編集してアプリを再起動してください。
+  (Web UIからの編集は今後対応予定)
+</p>
+
+<h2>デフォルトキーワード</h2>
+<div class="tag-list">
+  {% for kw in default_keywords %}<span class="tag">{{ kw }}</span>{% endfor %}
+</div>
+
+<h2>登録済みソース</h2>
+<table class="sources-table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>タイプ</th>
+      <th>状態</th>
+      <th>巡回間隔</th>
+      <th>取得件数</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in sources %}
+    <tr>
+      <td>{{ s.name }}</td>
+      <td>{{ s.type }}</td>
+      <td>{% if s.enabled %}<span class="badge on">有効</span>{% else %}<span class="badge off">無効</span>{% endif %}</td>
+      <td>{{ s.poll_interval_sec or "-" }}秒</td>
+      <td>{{ counts.get(s.name, 0) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="notice">
+  フリマ/オークション系(メルカリ・ラクマ・PayPayフリマ等)は公式APIが提供されていないため、
+  既定では無効化しています。有効化する場合は各サービスの利用規約を確認のうえ、
+  <code>html_polite</code> タイプで list_url とCSSセレクタを設定してください
+  (robots.txtで許可されていないページは自動的にスキップされます)。
+</div>
+{% endblock %}

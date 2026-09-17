@@ -1,0 +1,125 @@
+# =====================================================================
+# 仕入れ元(ソース)設定
+# ---------------------------------------------------------------------
+# type ごとに必要なパラメータが異なります。詳細は README.md の
+# 「ソースの追加方法」を参照してください。
+#
+# 共通パラメータ:
+#   name               : 画面表示用の名前
+#   enabled             : true/false でON/OFF
+#   poll_interval_sec   : 巡回間隔(秒)。省略時は環境変数 DEFAULT_POLL_INTERVAL_SEC
+#   keywords            : この中のいずれかを含む商品名だけを対象にする(省略時は default_keywords)
+#   exclude_keywords    : この中のいずれかを含む商品名は除外する(省略時は default_exclude_keywords)
+# =====================================================================
+
+# エリアトラウト用品を拾うためのデフォルトキーワード。
+# 自分の狙う銘柄・型番に合わせて自由に編集してください。
+default_keywords:
+  - エリアトラウト
+  - トラウトロッド
+  - トラウトスプーン
+  - トラウトミノー
+  - トラウトプラグ
+  - ネイティブトラウト
+  - 管理釣り場
+  - 管釣り
+  # 主要ブランド(適宜追加/削除)
+  - ロデオクラフト
+  - RODIO CRAFT
+  - バルケイン
+  - Valkein
+  - アピア
+  - APIA
+  - ティモン
+  - TIMON
+  - 五三堂
+  - フォレスト ルアー
+  - Forest
+  - ダイワ トラウト
+  - シマノ トラウト
+  - スミス パニック
+  - ジャッカル トラウト
+  - ima トラウト
+  - リューギ トラウト
+
+default_exclude_keywords:
+  - 中古 ジャンク
+  - 訳あり 破損
+
+sources:
+  # ---------------------------------------------------------------
+  # 1) 楽天市場 商品検索API(公式・要APIキー)
+  #    https://webservice.rakuten.co.jp/documentation/ichiba-item-search
+  # ---------------------------------------------------------------
+  - name: 楽天市場
+    type: rakuten_api
+    enabled: true
+    poll_interval_sec: 900
+    genre_id: null   # 必要ならジャンルIDで絞り込み(釣具ジャンル等)
+    sort: "-updateTimestamp"  # 更新が新しい順
+
+  # ---------------------------------------------------------------
+  # 2) Yahoo!ショッピング 商品検索API(公式・要APIキー)
+  #    https://developer.yahoo.co.jp/webapi/shopping/v3/itemsearch.html
+  # ---------------------------------------------------------------
+  - name: Yahoo!ショッピング
+    type: yahoo_shopping_api
+    enabled: true
+    poll_interval_sec: 900
+
+  # ---------------------------------------------------------------
+  # 3) ヤフオク! 検索結果RSS(Yahoo!が公式に提供している検索結果のRSS配信機能を利用)
+  #    例: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=<キーワード>&rss=1
+  #    ※ 必ず自分のブラウザで検索URLを開き、RSSリンクの有無を確認してから有効化してください。
+  # ---------------------------------------------------------------
+  - name: ヤフオク! (トラウトロッド)
+    type: rss
+    enabled: false
+    poll_interval_sec: 1800
+    feed_url: "https://auctions.yahoo.co.jp/search/search?p=%E3%83%88%E3%83%A9%E3%82%A6%E3%83%88+%E3%83%AD%E3%83%83%E3%83%89&rss=1"
+
+  # ---------------------------------------------------------------
+  # 4) 釣具専門通販サイトの新着/入荷情報RSS
+  #    多くの専門店はブログやお知らせページにRSSを持っています。
+  #    サイトの<link rel="alternate" type="application/rss+xml">を確認して設定してください。
+  # ---------------------------------------------------------------
+  - name: ナチュラム 新着情報 (例)
+    type: rss
+    enabled: false
+    poll_interval_sec: 1800
+    feed_url: "https://www.naturum.co.jp/rss/new.rdf"
+
+  # ---------------------------------------------------------------
+  # 5) robots.txt を尊重した汎用HTMLポーリング(RSSが無いショップ向け)
+  #    CSSセレクタで一覧ページから商品を抽出します。
+  #    必ず対象サイトの利用規約・robots.txtを確認し、
+  #    poll_interval_sec は短くしすぎない(30分以上推奨)でください。
+  # ---------------------------------------------------------------
+  - name: 専門店サイト (要セレクタ設定・サンプル)
+    type: html_polite
+    enabled: false
+    poll_interval_sec: 1800
+    list_url: "https://example-tackle-shop.example.com/new-arrivals"
+    item_selector: "ul.item-list li.item"
+    title_selector: ".item-title"
+    price_selector: ".item-price"
+    link_selector: "a"
+    image_selector: "img"
+
+  # ---------------------------------------------------------------
+  # 6) フリマ/オークション(メルカリ・ラクマ・PayPayフリマ等)
+  #    公式APIが一般提供されていないため、既定では無効化しています。
+  #    有効化する場合は html_polite と同様にセレクタを設定し、
+  #    必ず各サービスの利用規約を確認したうえで自己責任で運用してください。
+  #    (過度な頻度でのアクセスは利用規約違反・アクセス遮断の対象になります)
+  # ---------------------------------------------------------------
+  - name: フリマ検索 (要セレクタ設定・既定OFF)
+    type: html_polite
+    enabled: false
+    poll_interval_sec: 3600
+    list_url: "https://example-flea-market.example.com/search?keyword=%E3%83%88%E3%83%A9%E3%82%A6%E3%83%88"
+    item_selector: "ul.items li"
+    title_selector: ".item-name"
+    price_selector: ".item-price"
+    link_selector: "a"
+    image_selector: "img"
