@@ -5,5 +5,7 @@ venv/
 *.db
 *.sqlite3
 .env
-data/
+data/*
+# GitHub Actionsの定期ポーリングが「既に通知済みか」を判定するための記録は追跡する
+!data/seen.txt
 .pytest_cache/

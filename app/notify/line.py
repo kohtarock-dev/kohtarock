@@ -11,18 +11,33 @@ LINE公式アカウント(Messaging API)を使用する。
 from __future__ import annotations
 
 import logging
+from typing import Protocol
 
 import httpx
 
 from app.config import settings
-from app.db import Item
 
 logger = logging.getLogger(__name__)
 
 BROADCAST_URL = "https://api.line.me/v2/bot/message/broadcast"
 
 
-def _build_message(item: Item) -> str:
+class NotifiableItem(Protocol):
+    """通知メッセージの組み立てに必要な属性だけを定義するインターフェース。
+
+    DBに保存されたItem、CIの軽量ポーリングスクリプトが作る一時オブジェクト、
+    どちらもこの形さえ満たせばそのまま notify_new_items に渡せる。
+    """
+
+    title: str
+    price: float | None
+    shop_name: str | None
+    source_name: str
+    url: str
+    matched_keyword: str | None
+
+
+def _build_message(item: NotifiableItem) -> str:
     price_str = f"{int(item.price):,}円" if item.price is not None else "価格不明"
     lines = [
         "【新着】" + item.title[:80],
@@ -35,7 +50,7 @@ def _build_message(item: Item) -> str:
     return "\n".join(lines)
 
 
-def notify_new_items(items: list[Item]) -> None:
+def notify_new_items(items: list[NotifiableItem]) -> None:
     if not settings.line_enabled:
         logger.debug("LINE通知が未設定のためスキップします")
         return

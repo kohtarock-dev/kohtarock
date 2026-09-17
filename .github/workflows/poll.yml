@@ -1,0 +1,44 @@
+name: 新着仕入れ情報のポーリング
+
+on:
+  schedule:
+    # 30分おきに実行(GitHub側のスケジュール遅延で多少前後することがある)
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: poll-new-arrivals
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Poll sources and send LINE notifications
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          YAHOO_APP_ID: ${{ secrets.YAHOO_APP_ID }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+        run: python scripts/ci_poll.py
+
+      - name: Commit updated seen list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/seen.txt
+          git diff --cached --quiet || git commit -m "chore: 既知アイテムの記録を更新"
+          git push

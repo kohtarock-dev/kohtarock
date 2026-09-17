@@ -128,6 +128,31 @@ RSSが無いサイトは `type: html_polite` で一覧ページをCSSセレク�
 自動的にスキップ(ログに警告)します。ただし robots.txt は最低限のガードに過ぎないため、
 **有効化する前に必ず対象サイトの利用規約(ToS)を確認**してください。
 
+## PCをつけっぱなしにせず常時稼働させる(GitHub Actions)
+
+このリポジトリが public であれば、GitHub Actionsを使って完全無料でLINE通知だけを
+自動化できます(`.github/workflows/poll.yml`)。30分おきに `scripts/ci_poll.py` が
+起動し、各ソースを1回巡回してLINEに新着通知を送ります。
+
+FastAPIサーバーは常時起動しない(=Web UIの一覧画面は常時アクセスできない)方式
+なので、あくまで「LINE通知だけは止まらない」ための仕組みです。Web UIも含めて
+常時稼働させたい場合は、別途VPS等にデプロイしてください。
+
+セットアップ:
+
+1. GitHubリポジトリの Settings → Secrets and variables → Actions で、
+   `.env` に設定しているのと同じ値をリポジトリシークレットとして登録する:
+   - `RAKUTEN_APP_ID`
+   - `RAKUTEN_ACCESS_KEY`
+   - `LINE_CHANNEL_ACCESS_TOKEN`
+   - (Yahoo!ショッピングを使うなら `YAHOO_APP_ID` も)
+2. `main` ブランチにpushすれば、あとは自動的に30分おきに実行されます
+3. Actions タブの「新着仕入れ情報のポーリング」ワークフローから、
+   「Run workflow」で手動実行して動作確認もできます
+
+「既に通知済みかどうか」は `data/seen.txt` に記録し、実行のたびにリポジトリへ
+コミットし直すことで、次回の実行(新しいランナー)にも引き継がれます。
+
 ## 法的・利用上の注意(重要)
 
 - 本アプリは自分自身の仕入れ判断を助けるための「巡回の自動化ツール」であり、
