@@ -5,6 +5,7 @@ from app.sources.base import BaseSource
 from app.sources.html_generic import HtmlPoliteSource
 from app.sources.rakuten import RakutenApiSource
 from app.sources.rss_generic import RssSource
+from app.sources.sitemap_diff import SitemapDiffSource
 from app.sources.yahoo_shopping import YahooShoppingApiSource
 
 SOURCE_CLASSES: dict[str, type[BaseSource]] = {
@@ -12,6 +13,7 @@ SOURCE_CLASSES: dict[str, type[BaseSource]] = {
     YahooShoppingApiSource.type_name: YahooShoppingApiSource,
     RssSource.type_name: RssSource,
     HtmlPoliteSource.type_name: HtmlPoliteSource,
+    SitemapDiffSource.type_name: SitemapDiffSource,
 }
 
 

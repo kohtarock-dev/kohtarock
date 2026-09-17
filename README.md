@@ -137,6 +137,31 @@ RSSが無いサイトは `type: html_polite` で一覧ページをCSSセレク�
 自動的にスキップ(ログに警告)します。ただし robots.txt は最低限のガードに過ぎないため、
 **有効化する前に必ず対象サイトの利用規約(ToS)を確認**してください。
 
+### サイトマップ差分ソースの追加(商品ページがボット対策でブロックされている場合)
+
+Cloudflare等のボット対策で商品一覧・個別ページが直接読めなくても、検索エンジン向けの
+XMLサイトマップ(robots.txtで案内されている公式ファイル)だけは別扱いでアクセスできる
+ことがある。`type: sitemap_diff` は、サイトマップの `<lastmod>` を使って直近
+`recent_days` 日以内に更新されたURLだけを検出する。
+
+```yaml
+- name: サンプル専門店(オオツカ方式)
+  type: sitemap_diff
+  enabled: true
+  poll_interval_sec: 1800
+  sitemap_url: "https://shop.example.com/sitemap-products.xml"
+  recent_days: 3
+```
+
+商品ページ自体は読めないため、通知にはタイトル・価格を含められず「更新日+リンク」
+のみになる。リンク先は一般的なブラウザでアクセスする分にはボット対策に引っかからず
+開けるはず(この仕組みの動作確認はアプリ側では最終的にはできないので、実際にリンクを
+開いて表示されるか確認してほしい)。クエリパラメータの無いURL(カテゴリ/トップページ等)
+は個別商品ではないとみなし自動的に除外している。
+
+**プロショップオオツカ**(`fishing-otsuka.co.jp/troutshopjp/sitemap-1.xml`)はこの方式で
+設定済み。
+
 ## PCをつけっぱなしにせず常時稼働させる(GitHub Actions)
 
 このリポジトリが public であれば、GitHub Actionsを使って完全無料でLINE通知だけを

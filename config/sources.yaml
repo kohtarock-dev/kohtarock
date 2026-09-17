@@ -220,6 +220,21 @@ sources:
     feed_url: "https://fishingshop-zarky.com/collections/all.atom"
     match_all: true
 
+  # プロショップオオツカ(トラウト部門)。商品ページ・一覧ページはCloudflareの
+  # ボット認証でブロックされているため通常の方法では読めないが、検索エンジン向け
+  # のXMLサイトマップ(robots.txtで案内されている公式ファイル)は別扱いでアクセス
+  # できる。lastmod(更新日)を使い、直近 recent_days 日以内に更新された商品だけを
+  # 検出する(type: sitemap_diff)。商品ページ自体は読めないため、通知には
+  # タイトル・価格は含められず、更新日とリンクのみになる
+  # (リンクは普通のブラウザで開く分には問題なく表示できる)。
+  - name: プロショップオオツカ
+    type: sitemap_diff
+    enabled: true
+    poll_interval_sec: 1800
+    sitemap_url: "https://www.fishing-otsuka.co.jp/troutshopjp/sitemap-1.xml"
+    recent_days: 3
+    match_all: true
+
   # ---------------------------------------------------------------
   # 6) フリマ/オークション(メルカリ・ラクマ・PayPayフリマ等)
   #    公式APIが一般提供されていないため、既定では無効化しています。
