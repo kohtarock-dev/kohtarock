@@ -38,21 +38,27 @@ class BaseSource(ABC):
         raise NotImplementedError
 
 
+def is_excluded(title: str, exclude_keywords: list[str]) -> bool:
+    """タイトルが exclude_keywords のいずれかを含むか判定する。"""
+    if not title:
+        return False
+    lowered = title.lower()
+    return any(ex and ex.lower() in lowered for ex in (exclude_keywords or []))
+
+
 def match_keywords(title: str, keywords: list[str], exclude_keywords: list[str]) -> str | None:
     """タイトルが keywords のいずれかを含み、exclude_keywords をどれも含まない場合、
     最初にマッチしたキーワードを返す。マッチしなければ None。
     """
     if not title:
         return None
-    lowered = title.lower()
-
-    for ex in exclude_keywords or []:
-        if ex and ex.lower() in lowered:
-            return None
+    if is_excluded(title, exclude_keywords):
+        return None
 
     if not keywords:
         return None
 
+    lowered = title.lower()
     for kw in keywords:
         if kw and kw.lower() in lowered:
             return kw

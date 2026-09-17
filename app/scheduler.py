@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 from app.config import load_sources_config, settings
 from app.db import Item, SessionLocal
 from app.notify.line import notify_new_items
-from app.sources.base import match_keywords
+from app.sources.base import is_excluded, match_keywords
 from app.sources.registry import build_source
 
 logger = logging.getLogger(__name__)
@@ -30,10 +30,18 @@ def poll_source(name: str, source_type: str, config: dict, keywords: list[str], 
     new_items: list[Item] = []
     session = SessionLocal()
     try:
+        match_all = bool(config.get("match_all"))
         for fetched in fetched_items:
-            matched_keyword = match_keywords(fetched.title, keywords, exclude_keywords)
-            if not matched_keyword:
-                continue
+            if match_all:
+                # このソースは専門店等で扱う商品がほぼ全てキーワード該当のため、
+                # exclude_keywords以外は無条件で新着として扱う
+                if is_excluded(fetched.title, exclude_keywords):
+                    continue
+                matched_keyword = "(専門店・全件)"
+            else:
+                matched_keyword = match_keywords(fetched.title, keywords, exclude_keywords)
+                if not matched_keyword:
+                    continue
 
             exists = (
                 session.query(Item.id)

@@ -83,6 +83,17 @@ sources:
   #    多くの専門店はブログやお知らせページにRSSを持っています。
   #    サイトの<link rel="alternate" type="application/rss+xml">を確認して設定してください。
   # ---------------------------------------------------------------
+  # トラウトアイランド(エリア/ネイティブトラウト専門店)。
+  # robots.txtで許可された公式RSS(?mode=rss)を使用。
+  # 扱っている商品のほぼ全てがトラウト関連のため match_all: true で
+  # キーワード絞り込みをせず全件を新着として扱う(exclude_keywordsのみ適用)。
+  - name: トラウトアイランド
+    type: rss
+    enabled: true
+    poll_interval_sec: 1800
+    feed_url: "http://troutisland.shop-pro.jp/?mode=rss"
+    match_all: true
+
   - name: ナチュラム 新着情報 (例)
     type: rss
     enabled: false
