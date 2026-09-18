@@ -947,3 +947,5 @@ t-Route|https://t-route.net/products/9517690028246
 プロショップザーキー|https://fishingshop-zarky.com/products/10437258608914
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193592763
 プロショップトモ|https://www.proshoptomo.com/?pid=193592800
+プロショップトモ|https://www.proshoptomo.com/?pid=193593162
+吉や|https://www.kitiya.jp/?pid=193593065
