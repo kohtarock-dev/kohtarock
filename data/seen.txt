@@ -951,3 +951,5 @@ t-Route|https://t-route.net/products/9517690028246
 吉や|https://www.kitiya.jp/?pid=193593065
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193593254
 プロショップトモ|https://www.proshoptomo.com/?pid=193594127
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193594295
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193594251
