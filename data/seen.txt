@@ -953,3 +953,8 @@ t-Route|https://t-route.net/products/9517690028246
 プロショップトモ|https://www.proshoptomo.com/?pid=193594127
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193594295
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193594251
+釣具アニー|https://www.any-netshop.net/?pid=193594558
+釣具アニー|https://www.any-netshop.net/?pid=193594513
+釣具アニー|https://www.any-netshop.net/?pid=193594414
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018088/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-84711/
