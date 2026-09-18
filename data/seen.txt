@@ -938,3 +938,7 @@ t-Route|https://t-route.net/products/9517690028246
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017621/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017620/all_items/page1/order/
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193590211
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193591602
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193591551
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000014332/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000012390/all_items/page1/order/
