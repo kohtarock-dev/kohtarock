@@ -921,3 +921,7 @@ t-Route|https://t-route.net/products/9517690028246
 吉や|https://www.kitiya.jp/?pid=193585909
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017823/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017824/all_items/page1/order/
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193586549
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193586335
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193586280
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000015865/all_items/page1/order/
