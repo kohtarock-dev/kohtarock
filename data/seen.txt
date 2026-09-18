@@ -935,3 +935,5 @@ t-Route|https://t-route.net/products/9517690028246
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193588108
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193587991
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193588180
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017621/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017620/all_items/page1/order/
