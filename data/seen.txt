@@ -944,3 +944,4 @@ t-Route|https://t-route.net/products/9517690028246
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000012390/all_items/page1/order/
 釣具アニー|https://www.any-netshop.net/?pid=193592142
 プロショップリバーロード|https://riverroad1091.shop/?pid=193592231
+プロショップザーキー|https://fishingshop-zarky.com/products/10437258608914
