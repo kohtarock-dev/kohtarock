@@ -918,3 +918,6 @@ t-Route|https://t-route.net/products/9517690028246
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000005104/all_items/page1/order/
 吉や|https://www.kitiya.jp/?pid=193492662
 吉や|https://www.kitiya.jp/?pid=193585900
+吉や|https://www.kitiya.jp/?pid=193585909
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017823/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017824/all_items/page1/order/
