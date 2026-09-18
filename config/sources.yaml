@@ -188,6 +188,22 @@ sources:
     link_selector: "a"
     image_selector: "img"
 
+  # skymtackle(BASEショップ)。「放流」カテゴリページ(新入荷/在庫追加を
+  # まとめたページと思われる)を直接指定。RSS配信は無いためhtml_politeで
+  # ポーリングする。robots.txtは無名のUser-Agentだけを拒否しており、
+  # 名前を名乗ったボットは"User-agent: *"のAllow: /で許可されている。
+  - name: skymtackle
+    type: html_polite
+    enabled: true
+    poll_interval_sec: 1800
+    list_url: "https://skymtackle.base.shop/categories/7417664"
+    item_selector: "div.prod"
+    title_selector: ".name"
+    price_selector: ".price"
+    link_selector: "a.prod-link"
+    image_selector: "img"
+    match_all: true
+
   # マニアックス(エリアトラウト専門店)。RSS/Atomの配信が無いため、
   # 商品一覧ページ(新着順)をrobots.txt準拠でポーリングする。
   # (robots.txt自体が存在しないサイトで、標準仕様上は全許可扱いとなる)

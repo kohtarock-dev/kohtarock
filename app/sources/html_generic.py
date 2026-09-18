@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import logging
 import urllib.robotparser
+from typing import Literal
 from urllib.parse import urljoin, urlparse
 
 import httpx
@@ -24,7 +25,9 @@ logger = logging.getLogger(__name__)
 
 USER_AGENT = "InventoryScraperBot/1.0 (+personal use; low-frequency polling; contact: owner via app settings)"
 
-_robots_cache: dict[str, urllib.robotparser.RobotFileParser] = {}
+# 値は RobotFileParser(通常時) / None(robots.txtが存在せず全許可) /
+# "blocked"(取得自体に失敗したため安全側にブロック) のいずれか
+_robots_cache: dict[str, urllib.robotparser.RobotFileParser | None | Literal["blocked"]] = {}
 
 
 def _is_allowed(url: str) -> bool:
@@ -32,17 +35,27 @@ def _is_allowed(url: str) -> bool:
     origin = f"{parsed.scheme}://{parsed.netloc}"
     rp = _robots_cache.get(origin)
     if rp is None:
-        rp = urllib.robotparser.RobotFileParser()
-        rp.set_url(urljoin(origin, "/robots.txt"))
+        robots_url = urljoin(origin, "/robots.txt")
+        # urllib.robotparser の read() は無名のUser-Agentでrobots.txtを取得するため、
+        # 一部サイトのWAFに弾かれ403になることがある(実際にrobots.txt自体は許可している
+        # にもかかわらず、無名アクセスだけを拒否しているケース)。実際のページ取得と
+        # 同じ名前を名乗ったUser-Agentでrobots.txtを取得し、その内容を渡す。
         try:
-            rp.read()
-        except Exception as exc:  # robots.txt が無い/読めない場合は保守的に許可扱いにしない
+            resp = httpx.get(robots_url, timeout=10.0, headers={"User-Agent": USER_AGENT})
+            if resp.status_code == 404:
+                rp = None  # robots.txtが存在しない場合は標準仕様どおり全許可扱い
+            else:
+                resp.raise_for_status()
+                rp = urllib.robotparser.RobotFileParser()
+                rp.parse(resp.text.splitlines())
+        except httpx.HTTPError as exc:
             logger.warning("robots.txt の取得に失敗しました (%s): %s", origin, exc)
-            rp = None
+            rp = "blocked"  # 取得自体に失敗した場合は安全側に倒してブロックする
         _robots_cache[origin] = rp
-    if rp is None:
-        # robots.txt を確認できない場合は安全側に倒してブロックする
+    if rp == "blocked":
         return False
+    if rp is None:
+        return True
     return rp.can_fetch(USER_AGENT, url)
 
 
