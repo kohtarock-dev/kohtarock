@@ -1003,3 +1003,4 @@ t-Route|https://t-route.net/products/9519184838870
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018074/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000016707/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018040/all_items/page1/order/
+プロショップトモ|https://www.proshoptomo.com/?pid=193599799
