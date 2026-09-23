@@ -1201,3 +1201,4 @@ t-Route|https://t-route.net/products/10311429488854
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-88429/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-88551/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-88567/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000014914/all_items/page1/order/
