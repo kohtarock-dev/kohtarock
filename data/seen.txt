@@ -1209,3 +1209,4 @@ t-Route|https://t-route.net/products/10311429488854
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-88439/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-88561/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-88577/
+釣具アニー|https://www.any-netshop.net/?pid=193636530
