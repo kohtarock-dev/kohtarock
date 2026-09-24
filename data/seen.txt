@@ -1322,3 +1322,5 @@ t-Route|https://t-route.net/products/10311429488854
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91672/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91688/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91673/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91677/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91693/
