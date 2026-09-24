@@ -1277,3 +1277,4 @@ t-Route|https://t-route.net/products/10311429488854
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-89553/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-89569/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-89341/
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193650069
