@@ -1357,3 +1357,6 @@ t-Route|https://t-route.net/products/10311429488854
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91675/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91691/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-91676/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017962/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017961/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017949/all_items/page1/order/
