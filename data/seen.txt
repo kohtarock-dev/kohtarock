@@ -1389,3 +1389,4 @@ t-Route|https://t-route.net/products/10311429488854
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-93657/
 プロショップザーキー|https://fishingshop-zarky.com/products/15392553304338
 プロショップザーキー|https://fishingshop-zarky.com/products/15392531972370
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018420/all_items/page1/order/
