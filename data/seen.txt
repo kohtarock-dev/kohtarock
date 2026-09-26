@@ -1390,3 +1390,5 @@ t-Route|https://t-route.net/products/10311429488854
 プロショップザーキー|https://fishingshop-zarky.com/products/15392553304338
 プロショップザーキー|https://fishingshop-zarky.com/products/15392531972370
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018420/all_items/page1/order/
+釣具アニー|https://www.any-netshop.net/?pid=193680627
+釣具アニー|https://www.any-netshop.net/?pid=193680619
