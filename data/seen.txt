@@ -1394,3 +1394,4 @@ t-Route|https://t-route.net/products/10311429488854
 釣具アニー|https://www.any-netshop.net/?pid=193680619
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018421/all_items/page1/order/
 プロショップトモ|https://www.proshoptomo.com/?pid=193684031
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018493/all_items/page1/order/
