@@ -1405,3 +1405,5 @@ t-Route|https://t-route.net/products/15360624525526
 プロショップザーキー|https://fishingshop-zarky.com/products/15393068220690
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018495/all_items/page1/order/
 吉や|https://www.kitiya.jp/?pid=193679447
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016940/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017531/all_items/page1/order/
