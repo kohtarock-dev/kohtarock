@@ -1618,3 +1618,6 @@ t-Route|https://t-route.net/products/9450295722198
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95183/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95199/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-93462/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000004987/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018553/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018551/all_items/page1/order/
