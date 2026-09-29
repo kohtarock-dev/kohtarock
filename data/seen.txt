@@ -1601,3 +1601,9 @@ t-Route|https://t-route.net/products/9450295722198
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95196/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-93459/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-94089/
+城峰釣具店|https://fishing-shop-jh.com/?pid=193728436
+城峰釣具店|https://fishing-shop-jh.com/?pid=193728434
+城峰釣具店|https://fishing-shop-jh.com/?pid=193728430
+城峰釣具店|https://fishing-shop-jh.com/?pid=193728426
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018023/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-93461/
