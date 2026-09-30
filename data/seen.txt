@@ -1713,3 +1713,5 @@ t-Route|https://t-route.net/products/9450295722198
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95127/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95889/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95128/
+城峰釣具店|https://fishing-shop-jh.com/?pid=193739404
+城峰釣具店|https://fishing-shop-jh.com/?pid=193739381
