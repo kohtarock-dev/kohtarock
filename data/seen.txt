@@ -1719,3 +1719,5 @@ t-Route|https://t-route.net/products/9450295722198
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193741487
 プロショップトモ|https://www.proshoptomo.com/?pid=193744771
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193745537
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193746240
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017676/all_items/page1/order/
