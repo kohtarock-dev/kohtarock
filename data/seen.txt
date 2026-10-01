@@ -1784,3 +1784,5 @@ t-Route|https://t-route.net/products/15365292064982
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000014228/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000016986/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000000299/all_items/page1/order/
+t-Route|https://t-route.net/products/15366167757014
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018509/all_items/page1/order/
