@@ -1871,3 +1871,4 @@ t-Route|https://t-route.net/products/15366167757014
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018528/all_items/page1/order/
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193801373
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193801566
+プロショップトモ|https://www.proshoptomo.com/?pid=193804328
