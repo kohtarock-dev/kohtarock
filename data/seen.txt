@@ -2056,3 +2056,6 @@ t-Route|https://t-route.net/products/15370025238742
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000016736/all_items/page1/order/
 プロショップリバーロード|https://riverroad1091.shop/?pid=193843074
 プロショップリバーロード|https://riverroad1091.shop/?pid=193843849
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-5153/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-5156/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-5157/
