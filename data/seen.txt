@@ -2112,3 +2112,4 @@ t-Route|https://t-route.net/products/15370025238742
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018117/all_items/page1/order/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-97076/
 吉や|https://www.kitiya.jp/?pid=193856798
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000010756/all_items/page1/order/
