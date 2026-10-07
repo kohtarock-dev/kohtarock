@@ -2189,3 +2189,15 @@ t-Route|https://t-route.net/products/15370025238742
 t-Route|https://t-route.net/products/10314031857878
 t-Route|https://t-route.net/products/8958945689814
 t-Route|https://t-route.net/products/9032759214294
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016519/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016241/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000013717/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000013736/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000000084/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000000083/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016501/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016504/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016502/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-95840/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-96796/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-96916/
