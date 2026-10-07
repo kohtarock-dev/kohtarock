@@ -2141,3 +2141,10 @@ t-Route|https://t-route.net/products/15370025238742
 プロショップトモ|https://www.proshoptomo.com/?pid=193862484
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018587/all_items/page1/order/
 プロショップトモ|https://www.proshoptomo.com/?pid=193863556
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000008375/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000010837/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000003908/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000000484/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000014944/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000013790/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000013854/all_items/page1/order/
