@@ -2131,3 +2131,9 @@ t-Route|https://t-route.net/products/15370025238742
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-11024/
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193859978
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193860523
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193861400
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000008587/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000008590/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000008589/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-96774/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-96792/
