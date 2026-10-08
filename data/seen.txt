@@ -2252,3 +2252,5 @@ t-Route|https://t-route.net/products/9032759214294
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-99438/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-99532/
 城峰釣具店|https://fishing-shop-jh.com/?pid=193871087
+城峰釣具店|https://fishing-shop-jh.com/?pid=193871188
+城峰釣具店|https://fishing-shop-jh.com/?pid=193871186
