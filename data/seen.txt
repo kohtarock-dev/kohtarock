@@ -2325,3 +2325,5 @@ t-Route|https://t-route.net/products/15375418294486
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018598/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018599/all_items/page1/order/
 プロショップリバーロード|https://riverroad1091.shop/?pid=193905364
+プロショップリバーロード|https://riverroad1091.shop/?pid=193905721
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000015449/all_items/page1/order/
