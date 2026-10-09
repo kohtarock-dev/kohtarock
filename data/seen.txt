@@ -2321,3 +2321,4 @@ t-Route|https://t-route.net/products/15375418294486
 プロショップトモ|https://www.proshoptomo.com/?pid=193897324
 吉や|https://www.kitiya.jp/?pid=193897445
 城峰釣具店|https://fishing-shop-jh.com/?pid=193897559
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000006922/all_items/page1/order/
