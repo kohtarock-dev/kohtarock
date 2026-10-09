@@ -2319,3 +2319,5 @@ t-Route|https://t-route.net/products/15375418294486
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193895125
 プロショップトモ|https://www.proshoptomo.com/?pid=193895063
 プロショップトモ|https://www.proshoptomo.com/?pid=193897324
+吉や|https://www.kitiya.jp/?pid=193897445
+城峰釣具店|https://fishing-shop-jh.com/?pid=193897559
