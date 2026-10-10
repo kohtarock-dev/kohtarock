@@ -2349,3 +2349,4 @@ t-Route|https://t-route.net/products/7899542159574
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000004213/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000004566/all_items/page1/order/
 吉や|https://www.kitiya.jp/?pid=193911426
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000004568/all_items/page1/order/
