@@ -2343,3 +2343,4 @@ t-Route|https://t-route.net/products/7899542159574
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017608/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018503/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018524/all_items/page1/order/
+城峰釣具店|https://fishing-shop-jh.com/?pid=193909938
