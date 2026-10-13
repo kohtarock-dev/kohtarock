@@ -2520,3 +2520,5 @@ t-Route|https://t-route.net/products/15378560188630
 城峰釣具店|https://fishing-shop-jh.com/?pid=193910045
 城峰釣具店|https://fishing-shop-jh.com/?pid=193910037
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000009562/all_items/page1/order/
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193942457
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017300/all_items/page1/order/
