@@ -2517,3 +2517,5 @@ t-Route|https://t-route.net/products/15378560188630
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101175/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-99378/
 吉や|https://www.kitiya.jp/?pid=193815240
+城峰釣具店|https://fishing-shop-jh.com/?pid=193910045
+城峰釣具店|https://fishing-shop-jh.com/?pid=193910037
