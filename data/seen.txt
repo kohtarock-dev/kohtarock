@@ -2528,3 +2528,4 @@ t-Route|https://t-route.net/products/15378560188630
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017011/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018616/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018617/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-99297/
