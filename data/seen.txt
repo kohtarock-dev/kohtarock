@@ -2590,3 +2590,5 @@ t-Route|https://t-route.net/products/15383278747862
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101197/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101213/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101229/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101198/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101214/
