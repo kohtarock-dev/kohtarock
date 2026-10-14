@@ -2549,3 +2549,11 @@ t-Route|https://t-route.net/products/15378560188630
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018508/all_items/page1/order/
 プロショップトモ|https://www.proshoptomo.com/?pid=193965488
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193966242
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193789469
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193789328
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018621/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018522/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018520/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018519/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018518/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018517/all_items/page1/order/
