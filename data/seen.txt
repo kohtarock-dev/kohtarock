@@ -2592,3 +2592,5 @@ t-Route|https://t-route.net/products/15383278747862
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101229/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101198/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101214/
+プロショップザーキー|https://fishingshop-zarky.com/products/15405256081682
+プロショップザーキー|https://fishingshop-zarky.com/products/15405256048914
