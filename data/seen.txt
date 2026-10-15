@@ -2599,3 +2599,17 @@ t-Route|https://t-route.net/products/15383278747862
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193980769
 越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=193966649
 プロショップトモ|https://www.proshoptomo.com/?pid=193982160
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000012910/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000003671/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101188/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101204/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101220/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101189/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101205/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101221/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101190/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101206/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101222/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101191/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101207/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-101223/
