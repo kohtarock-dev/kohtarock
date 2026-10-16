@@ -2703,3 +2703,6 @@ t-Route|https://t-route.net/products/15384907481302
 プロショップザーキー|https://fishingshop-zarky.com/products/15406041399570
 プロショップザーキー|https://fishingshop-zarky.com/products/15406041170194
 プロショップザーキー|https://fishingshop-zarky.com/products/15406081409298
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194015524
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018620/all_items/page1/order/
+プロショップザーキー|https://fishingshop-zarky.com/products/9830229377298
