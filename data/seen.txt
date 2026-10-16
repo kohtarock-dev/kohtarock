@@ -2696,3 +2696,4 @@ t-Route|https://t-route.net/products/15384907481302
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-103311/
 プロショップトモ|https://www.proshoptomo.com/?pid=194009601
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018627/all_items/page1/order/
+釣具アニー|https://www.any-netshop.net/?pid=194012437
