@@ -2707,3 +2707,5 @@ t-Route|https://t-route.net/products/15384907481302
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018620/all_items/page1/order/
 プロショップザーキー|https://fishingshop-zarky.com/products/9830229377298
 トラウトアイランド|http://troutisland.shop-pro.jp/?pid=194015951
+t-Route|https://t-route.net/products/9347012624598
+t-Route|https://t-route.net/products/9302949167318
