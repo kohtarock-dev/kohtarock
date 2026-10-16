@@ -2694,3 +2694,4 @@ t-Route|https://t-route.net/products/15384907481302
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-103220/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-103270/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-103311/
+プロショップトモ|https://www.proshoptomo.com/?pid=194009601
