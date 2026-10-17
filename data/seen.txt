@@ -2788,3 +2788,5 @@ t-Route|https://t-route.net/products/15386995261654
 城峰釣具店|https://fishing-shop-jh.com/?pid=194019145
 城峰釣具店|https://fishing-shop-jh.com/?pid=194019143
 城峰釣具店|https://fishing-shop-jh.com/?pid=194019140
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194020290
+城峰釣具店|https://fishing-shop-jh.com/?pid=194019098
