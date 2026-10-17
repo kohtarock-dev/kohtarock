@@ -2792,3 +2792,6 @@ t-Route|https://t-route.net/products/15386995261654
 城峰釣具店|https://fishing-shop-jh.com/?pid=194019098
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018521/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000017214/all_items/page1/order/
+プロショップトモ|https://www.proshoptomo.com/?pid=194021301
+城峰釣具店|https://fishing-shop-jh.com/?pid=194019545
+城峰釣具店|https://fishing-shop-jh.com/?pid=194019536
