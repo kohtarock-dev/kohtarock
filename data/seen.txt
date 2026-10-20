@@ -2915,3 +2915,8 @@ t-Route|https://t-route.net/products/15389448995030
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-105880/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-105896/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-105912/
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=193875985
+プロショップリバーロード|https://riverroad1091.shop/?pid=194061677
+吉や|https://www.kitiya.jp/?pid=194065387
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018649/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016230/all_items/page1/order/
