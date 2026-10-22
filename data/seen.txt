@@ -3031,3 +3031,5 @@ t-Route|https://t-route.net/products/9450008215766
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-105782/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-105798/
 プロショップザーキー|https://fishingshop-zarky.com/products/15409871552786
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194098457
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018073/all_items/page1/order/
