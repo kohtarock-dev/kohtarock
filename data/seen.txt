@@ -3267,3 +3267,15 @@ t-Route|https://t-route.net/products/15409851531478
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000012615/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000012614/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000018160/all_items/page1/order/
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=194185006
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=194184943
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=194184723
+プロショップトモ|https://www.proshoptomo.com/?pid=194188542
+プロショップトモ|https://www.proshoptomo.com/?pid=194187408
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000017647/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016429/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000014022/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000013241/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000012924/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-107932/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-108518/
