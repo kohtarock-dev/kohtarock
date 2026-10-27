@@ -3264,3 +3264,6 @@ t-Route|https://t-route.net/products/15409851531478
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-107386/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-107387/
 プロショップザーキー|https://fishingshop-zarky.com/products/15412928413970
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000012615/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000012614/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018160/all_items/page1/order/
