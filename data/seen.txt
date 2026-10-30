@@ -3313,3 +3313,10 @@ t-Route|https://t-route.net/products/15415965548758
 t-Route|https://t-route.net/products/15417525829846
 城峰釣具店|https://fishing-shop-jh.com/?pid=194218855
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000009830/all_items/page1/order/
+城峰釣具店|https://fishing-shop-jh.com/?pid=194229767
+城峰釣具店|https://fishing-shop-jh.com/?pid=194229638
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018592/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000006852/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000004561/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018591/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018572/all_items/page1/order/
