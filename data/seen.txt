@@ -3336,3 +3336,7 @@ t-Route|https://t-route.net/products/15419232616662
 プロショップザーキー|https://fishingshop-zarky.com/products/15416163041554
 プロショップザーキー|https://fishingshop-zarky.com/products/15416143020306
 プロショップザーキー|https://fishingshop-zarky.com/products/10310782845202
+吉や|https://www.kitiya.jp/?pid=194249170
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000015043/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000011191/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000016822/all_items/page1/order/
