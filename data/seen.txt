@@ -3340,3 +3340,9 @@ t-Route|https://t-route.net/products/15419232616662
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000015043/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000011191/all_items/page1/order/
 マニアックス|https://www.maniacs1091.jp/shopdetail/000000016822/all_items/page1/order/
+t-Route|https://t-route.net/products/15421158654166
+t-Route|https://t-route.net/products/15421132538070
+プロショップトモ|https://www.proshoptomo.com/?pid=194252392
+プロショップトモ|https://www.proshoptomo.com/?pid=194252197
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000002565/all_items/page1/order/
+タックルラウンジ|https://tackle-lounge.jp/shop/product/item-107398/
