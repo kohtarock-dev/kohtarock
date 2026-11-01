@@ -3348,3 +3348,4 @@ t-Route|https://t-route.net/products/15421132538070
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-107398/
 城峰釣具店|https://fishing-shop-jh.com/?pid=194229544
 城峰釣具店|https://fishing-shop-jh.com/?pid=194229514
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000004845/all_items/page1/order/
