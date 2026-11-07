@@ -3570,3 +3570,6 @@ t-Route|https://t-route.net/products/9089272971478
 吉や|https://www.kitiya.jp/?pid=194360533
 城峰釣具店|https://fishing-shop-jh.com/?pid=194349517
 城峰釣具店|https://fishing-shop-jh.com/?pid=194343206
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000015992/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018049/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018050/all_items/page1/order/
