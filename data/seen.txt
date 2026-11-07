@@ -3564,3 +3564,9 @@ t-Route|https://t-route.net/products/9089272971478
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-112754/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-112788/
 城峰釣具店|https://fishing-shop-jh.com/?pid=194342952
+トラウトアイランド|http://troutisland.shop-pro.jp/?pid=194367588
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194366879
+吉や|https://www.kitiya.jp/?pid=194361036
+吉や|https://www.kitiya.jp/?pid=194360533
+城峰釣具店|https://fishing-shop-jh.com/?pid=194349517
+城峰釣具店|https://fishing-shop-jh.com/?pid=194343206
