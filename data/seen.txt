@@ -3583,3 +3583,14 @@ t-Route|https://t-route.net/products/9089272971478
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-112749/
 吉や|https://www.kitiya.jp/?pid=194375139
 吉や|https://www.kitiya.jp/?pid=194375138
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194391006
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194390942
+越谷タックルアイランド・トラウト|https://www.area-island.com/?pid=194390907
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018683/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018684/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018687/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018685/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018686/all_items/page1/order/
+マニアックス|https://www.maniacs1091.jp/shopdetail/000000018681/all_items/page1/order/
+プロショップザーキー|https://fishingshop-zarky.com/products/15419677049106
+プロショップザーキー|https://fishingshop-zarky.com/products/15419676066066
