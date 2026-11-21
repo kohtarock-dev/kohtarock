@@ -4114,3 +4114,4 @@ t-Route|https://t-route.net/products/15491972956374
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-118795/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-118797/
 タックルラウンジ|https://tackle-lounge.jp/shop/product/item-118800/
+城峰釣具店|https://fishing-shop-jh.com/?pid=194527888
